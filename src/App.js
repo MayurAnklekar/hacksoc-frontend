@@ -7,6 +7,7 @@ import auth from "./helpers/firebaseConfig";
 import { login, logout, setUser } from "./features/userSlice";
 import Router from "./routes/index";
 import { useDispatch, useSelector } from "react-redux";
+import Home from "./pages/Home";
 
 function App() {
   const [data, setData] = useState("");
@@ -78,7 +79,7 @@ function App() {
           />
           ,
         </div>
-      )}
+      )}{" "}
     </div>
   );
 }

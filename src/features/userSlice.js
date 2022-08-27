@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   user:null,
   history:[],
-  level:null,
+  level:1,
   currentBook:null,
   isAdmin:false,
 };
@@ -29,7 +29,7 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.history = [];
-      state.level = null;
+      state.level = 1;
       state.isAdmin = false;
     }
   },

@@ -2,7 +2,7 @@ import React from "react";
 
 function card(props) {
   return (
-    <div className="bg-slate-300 w-full h-[20em]  m-10 mt-28 rounded-xl relative drop-shadow-2xl">
+    <div className="bg-slate-300  w-[30em] h-[20em]  mt-28 rounded-xl relative drop-shadow-2xl ">
       <img
         src={props.url}
         alt="img"

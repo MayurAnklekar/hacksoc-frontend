@@ -3,31 +3,34 @@ import Card from "../components/card/card";
 import Navbar from "../components/navbar/Navbar";
 import { Link } from "react-router-dom";
 import Tilt from "react-parallax-tilt";
-import {useEffect} from 'react'
+import { useEffect } from "react";
 import axiosConfig from "../services/axiosConfig";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useFirebaseAuth from "../helpers/hooks/useFirebaseAuth";
 
 const Home = () => {
+  const { user, history, level, currentBook, isAdmin } = useSelector(
+    (state) => state.user
+  );
+  const dispatch = useDispatch();
+  const { signOutFromApp } = useFirebaseAuth();
 
-    const {user, history, level, currentBook, isAdmin} = useSelector((state) => state.user);
-    const dispatch = useDispatch();
-    const { signOutFromApp } = useFirebaseAuth();
-
-    useEffect(() =>{
-        const fetchUser = async()=>{
-            console.log(user)
-            // const response = await axiosConfig.get('/users',);
-            // console.log(response)
-        }
-        fetchUser();
-    },[user])
+  useEffect(() => {
+    const fetchUser = async () => {
+      console.log(user);
+      // const response = await axiosConfig.get('/users',);
+      // console.log(response)
+    };
+    fetchUser();
+  }, [user]);
 
   return (
     <div>
     <Navbar />
     <div className="flex flex-row">
-      <div className="bg-slate-100 w-[25%] h-screen p-4 "><button onClick={signOutFromApp}>LOGOUT</button></div>
+      <div className="bg-slate-100 w-[25%] h-screen p-4 ">
+        <button onClick={signOutFromApp}>LOGOUT</button>
+      </div>
       <div className="flex flex-row flex-wrap justify-around w-full">
         <Link to={"/"}>
           <Tilt>

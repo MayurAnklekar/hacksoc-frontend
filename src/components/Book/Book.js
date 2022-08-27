@@ -15,6 +15,7 @@ export default function Book(props) {
         currentBook: props.id,
         uid: user.uid,
         startDate: today,
+        title: props.title,
       });
     } else {
     }

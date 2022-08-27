@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body{
-    background-color:rgb(255, 246, 206);
-}
-
-*{
-    font-family:'ubuntu';
-}
+/* body {
+  background-color: #fbfbff;
+  opacity: 1;
+  /* background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #fbfbff 10px
+    ),
+    repeating-linear-gradient(#d3d5ff55, #d3d5ff);
+} */

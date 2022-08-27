@@ -4,15 +4,27 @@ import axios from "axios";
 
 function Table(props) {
   const [search, setSearch] = useState('');
-  const [filteredData, setFilteredData] = useState([props.data]);
+  const [filteredData, setFilteredData] = useState(props.data);
 
-  
+  console.log(filteredData,"filter data");
+//   const filterData = () => {
+//      setFilteredData(props.data);
+//   }
+//   useEffect(()=>{
+//     filterData();
+//   },[])
+
+// useEffect(()=>{
+//     setFilteredData(props.data)
+// },[])
 
   useEffect(()=>{
      const result = props.data.filter(data => {
          return data.name.toLowerCase().match(search.toLowerCase());
      })
      setFilteredData(result);
+
+
   },[search])
 
   const columns = [

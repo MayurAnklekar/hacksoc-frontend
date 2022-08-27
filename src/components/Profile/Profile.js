@@ -7,7 +7,7 @@ import useFirebaseAuth from "../../helpers/hooks/useFirebaseAuth";
 const Profile = () => {
     const dispatch = useDispatch();
     const { signOutFromApp } = useFirebaseAuth();
-    const {user} = useSelector((state) => state.user);
+    const {user, currentBook} = useSelector((state) => state.user);
     console.log("Profile", user.photoURL)
   return (
     <section className="profilecard gradient-border">
@@ -26,12 +26,12 @@ const Profile = () => {
         </header>
         <article>
         <div className="profilecard__info">
-          <h3>EMAIL: </h3>
+          <h3>Email: </h3>
           <h3>{user.email}</h3>
         </div>
         <div className="profilecard__info">
-          <h3>DOB: </h3>
-          <h3>16/3/02</h3>
+          <h3>Currently Reading: </h3>
+          <h3>{currentBook===''?(<>-</>):(<>{currentBook}</>)}</h3>
         </div>
       </article>
       <div className="btn-group">

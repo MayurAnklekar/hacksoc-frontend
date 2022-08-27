@@ -5,18 +5,19 @@ import Navbar from "../components/navbar/Navbar";
 import axiosConfig from "../services/axiosConfig";
 import Table from "../components/adminDashboard/Table";
 
+
 const Admin = () => {
     const { signOutFromApp } = useFirebaseAuth();
     const [users, setUsers] = useState([])
 
-    useEffect(()=>{
-        const getAllUser = async () => {
-            const {data} = await axiosConfig.get('/getusers');
-            console.log(data);
-            setUsers(data);
-        }
-        getAllUser();
-    },[]);
+    // useEffect(()=>{
+    //     const getAllUser = async () => {
+    //         const {data} = await axiosConfig.get('/getusers');
+    //         console.log(data);
+    //         setUsers(data);
+    //     }
+    //     getAllUser();
+    // },[users]);
 
     const columns = [
         {
@@ -36,7 +37,7 @@ const Admin = () => {
             },
         },
         {
-            name: "currently reading",
+            name: "curBookID",
             label: "Currently Reading",
             options: {
                 filter: true,
@@ -44,8 +45,16 @@ const Admin = () => {
             },
         },
         {
-            name: "start data",
+            name: "start date",
             label: "Start Date",
+            options: {
+                filter: true,
+                sort: false,
+            },
+        },
+        {
+            name: "status",
+            label: "Status",
             options: {
                 filter: true,
                 sort: false,
@@ -53,17 +62,7 @@ const Admin = () => {
         },
     ];
 
-    const data = [
-        { name: "Joe James", company: "Test Corp", city: "Yonkers", state: "NY" },
-        { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-        { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-        {
-            name: "James Houston",
-            company: "Test Corp",
-            city: "Dallas",
-            state: "TX",
-        },
-    ];
+    
     const options = {
         filterType: "checkbox",
     };

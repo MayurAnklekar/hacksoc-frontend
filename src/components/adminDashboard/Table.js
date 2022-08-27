@@ -1,29 +1,30 @@
 // import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
+import { Link } from "react-router-dom";
 
 function Table(props) {
-//   const [search, setSearch] = useState('');
-//   const [filteredData, setFilteredData] = useState(props.data);
+  //   const [search, setSearch] = useState('');
 
-//   const filterData = () => {
-//      setFilteredData(props.data);
-//   }
-//   useEffect(()=>{
-//     filterData();
-//   },[])
+  //   const [filteredData, setFilteredData] = useState(props.data);
 
-// useEffect(()=>{
-//     setFilteredData(props.data)
-// },[])
+  //   const filterData = () => {
+  //      setFilteredData(props.data);
+  //   }
+  //   useEffect(()=>{
+  //     filterData();
+  //   },[])
 
-//   useEffect(()=>{
-//      const result = props.data.filter(data => {
-//          return data.name.toLowerCase().match(search.toLowerCase());
-//      })
-//      setFilteredData(result);
+  // useEffect(()=>{
+  //     setFilteredData(props.data)
+  // },[])
 
+  //   useEffect(()=>{
+  //      const result = props.data.filter(data => {
+  //          return data.name.toLowerCase().match(search.toLowerCase());
+  //      })
+  //      setFilteredData(result);
 
-//   },[search])
+  //   },[search])
 
   const columns = [
     {
@@ -50,7 +51,10 @@ function Table(props) {
     {
       name: "Summary",
       cell: (row) => (
-        <button className="cursor-pointer">View Submissions</button>
+        // <button className="cursor-pointer">View Submissions</button>
+        <Link to={`/submission/${row.uid}`} className="cursor-pointer">
+          View Submissions
+        </Link>
       ),
     },
   ];

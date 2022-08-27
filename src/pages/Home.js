@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../components/card/card";
-import Navbar from "../components/navbar/Navbar";
 import { Link } from "react-router-dom";
 import Tilt from "react-parallax-tilt";
 import { useEffect } from "react";
@@ -29,7 +28,6 @@ const Home = () => {
 
   return (
     <div>
-    <Navbar />
     <div className="flex flex-row">
       <div className="bg-[#fff2b6] w-[25%] h-screen p-4 ">
         <Profile />

@@ -9,7 +9,7 @@ const Books = () => {
 
     useEffect(()=>{
         const getBooks = async() =>{
-            const {books} = await axiosConfig.get('/books', {"id":id, "level":user.level});
+            const {books} = await axiosConfig.get('/books', {"category":id, "level":user.level});
             console.log(books)
         }
         getBooks();

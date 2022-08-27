@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Home from "../pages/Home";
 import Books from "../pages/Books";
+import Navbar from "../components/navbar/Navbar";
 // import Appbar from "../components/Appbar/Appbar";
 // import Profile from "../pages/Profile/Profile";
 // import AllUsers from "../components/AllUsers/AllUsers";
@@ -19,6 +20,7 @@ const Router = () => {
 				<AllUsers />
 			</div>
 			<Appbar /> */}
+			<Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:id" element={<Books />} />

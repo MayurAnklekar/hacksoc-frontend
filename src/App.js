@@ -5,6 +5,7 @@ import GoogleOneTapLogin from "react-google-one-tap-login";
 import useFirebaseAuth from "./helpers/hooks/useFirebaseAuth";
 import auth from "./helpers/firebaseConfig";
 import { login, logout } from "./features/userSlice";
+import Router from "./routes/index";
 import { useDispatch, useSelector } from "react-redux";
 import Home from "./Pages/Home";
 
@@ -43,11 +44,8 @@ function App() {
 
   return (
     <div>
-      {/* {user.user ? (
-        <div>
-          <h1>Welcome</h1>
-          <button onClick={signOutFromApp}>Logout</button>
-        </div>
+      {user.user ? (
+        <Router />
       ) : (
         <div>
           <span>Please sign in</span>
@@ -64,8 +62,7 @@ function App() {
           />
           ,
         </div>
-      )} */}
-
+      )}{" "}
       <Home />
     </div>
   );

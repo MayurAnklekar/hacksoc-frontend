@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   background-color: #fbfbff;
   opacity: 1;
   /* background-image: repeating-radial-gradient(
@@ -10,5 +10,5 @@ body {
       transparent 0,
       #fbfbff 10px
     ),
-    repeating-linear-gradient(#d3d5ff55, #d3d5ff); */
-}
+    repeating-linear-gradient(#d3d5ff55, #d3d5ff);
+} */

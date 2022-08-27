@@ -1,22 +1,23 @@
 import React, {useEffect, useState} from "react";
 import useFirebaseAuth from "../helpers/hooks/useFirebaseAuth";
 import Navbar from "../components/navbar/Navbar";
-import MUIDataTable from "mui-datatables";
+// import MUIDataTable from "mui-datatables";
 import axiosConfig from "../services/axiosConfig";
+import Table from "../components/adminDashboard/Table";
 
 
 const Admin = () => {
     const { signOutFromApp } = useFirebaseAuth();
     const [users, setUsers] = useState([])
 
-    useEffect(()=>{
-        const getAllUser = async () => {
-            const {data} = await axiosConfig.get('/getusers');
-            console.log(data);
-            setUsers(data);
-        }
-        getAllUser();
-    },[]);
+    // useEffect(()=>{
+    //     const getAllUser = async () => {
+    //         const {data} = await axiosConfig.get('/getusers');
+    //         console.log(data);
+    //         setUsers(data);
+    //     }
+    //     getAllUser();
+    // },[users]);
 
     const columns = [
         {
@@ -67,9 +68,11 @@ const Admin = () => {
     };
     return (
         <div>
-            <Navbar />    
-            <div className="text-2xl font-bold text-center m-5">Admin Dashboard</div>
-            <MUIDataTable title={"Student List"} data={users} columns={columns} options={options} />
+            <Navbar />
+            <span>Admin</span>
+            <button onClick={signOutFromApp}>LOGOUT</button>
+            {/* <MUIDataTable title={"Student List"} data={data} columns={columns} options={options} /> */}
+            <Table data={users}/>
         </div>
     );
 };

@@ -1,6 +1,8 @@
-.book-item-container{  
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    justify-content:space-around;
+.book-item-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-end;
+  /* height: 100vh; */
 }

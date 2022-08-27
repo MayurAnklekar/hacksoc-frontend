@@ -8,6 +8,8 @@ import { login, logout, setUser } from "./features/userSlice";
 import Router from "./routes/index";
 import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home";
+import {showAlert} from "./features/modalSlice";
+import Alerts from "./components/Alert/Alert.jsx";
 import Admin from "./pages/Admin";
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
         console.log("userAuth", userAuth);
+
+        dispatch(showAlert({"msg":"Successful", "type":"success"}));
 
         dispatch(
           login({
@@ -77,6 +81,7 @@ function App() {
             }}
           />
         </div>))}
+        <Alerts/>
     </div>
   );
 }

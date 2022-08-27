@@ -8,6 +8,7 @@ import { login, logout, setUser } from "./features/userSlice";
 import Router from "./routes/index";
 import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home";
+import Admin from "./pages/Admin";
 
 function App() {
   const [data, setData] = useState("");
@@ -62,11 +63,7 @@ function App() {
 
   return (
     <div>
-      {user.user ? (
-        <Router />
-
-      ) : (
-        <div>
+    {user.isAdmin?<Admin/>:(user.user?(<Router />):(<div>
           <span>Please sign in</span>
           <GoogleOneTapLogin
             onError={(error) => console.log(error)}
@@ -79,9 +76,7 @@ function App() {
               callback: oneTapSignInWithGoogle,
             }}
           />
-          ,
-        </div>
-      )}{" "}
+        </div>))}
     </div>
   );
 }

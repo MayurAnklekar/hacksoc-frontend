@@ -8,6 +8,7 @@ import axiosConfig from "../services/axiosConfig";
 import { useDispatch, useSelector } from "react-redux";
 import useFirebaseAuth from "../helpers/hooks/useFirebaseAuth";
 import Profile from "../components/Profile/Profile";
+import { Typography } from "@mui/material";
 
 const Home = () => {
   const { user, history, level, currentBook, isAdmin } = useSelector(
@@ -25,15 +26,18 @@ const Home = () => {
     fetchUser();
   }, [user]);
 
+
   return (
     <div>
     <Navbar />
     <div className="flex flex-row">
-      <div className="bg-slate-100 w-[25%] h-screen p-4 ">
+      <div className="bg-[#fff2b6] w-[25%] h-screen p-4 ">
         <Profile />
         <button onClick={signOutFromApp}>LOGOUT</button>
       </div>
-      <div className="flex flex-row flex-wrap justify-around w-full">
+    
+      <div className="flex flex-row flex-wrap justify-start w-full">
+        
         <Link to={"/category/fiction"}>
           <Tilt>
             <Card

@@ -1,13 +1,33 @@
 .navbar-container{
+    
+    
+    background-color:#ffe366;
+    display:flex;
+    justify-content:space-between;
+    padding : 0.5rem;
+    /* opacity: 0.95;
+    backdrop-filter:20px; */
+    /* border-radius: 40px;
+    width:95%;
+    margin:auto; */
+    padding:1rem;
+    
+}
+
+.navbar-position{
+    /* margin-bottom:0.5rem; */
     position:sticky;
     z-index: 10;
     top:0;
-    background-color:rgb(158, 55, 255);
-    display:flex;
-    justify-content:space-between;
-    padding : 1rem;
-    opacity: 0.95;
-    backdrop-filter:20px;
+    /* margin-top: 5px; */
+    /* margin-top:1rem; */
+    
+}
+
+hr{
+    border:0.5px solid black;
+    width:90%;
+    margin:auto;
 }
 
 .navbar-container div {
@@ -16,15 +36,16 @@
 }
 .navbar-options{
    padding : 0 3rem;
-   margin-left:10rem;
+   margin-left:6rem;
 }
 
 .navbar-options button{
-    margin-left:6rem;
+    margin-left:3rem;
+    margin-right:5rem;
 }
 
 .navbar-options button {
-    background: #e93cb2;
+    background: none;
     -webkit-border-radius: 25;
     -moz-border-radius: 25;
     border-radius: 15px;
@@ -33,14 +54,5 @@
     font-size: 20px;
     padding: 5px 20px 5px 20px;
     text-decoration: none;
-    opacity:1;
-    width:100px;
-    text-align: center;
-    transition: 0.25s;
   }
   
-.navbar-options button:hover {
-    background: #ff00ae;
-    width:150px;
-    text-decoration: none;
-  }

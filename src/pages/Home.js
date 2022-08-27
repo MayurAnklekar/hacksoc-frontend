@@ -9,12 +9,10 @@ const Home = () => {
       <div className="bg-slate-100 w-[25%] h-screen p-4 ">ProfileCard</div>
       <div className="flex flex-row flex-wrap justify-around w-full">
         <Link to={"/"}>
-          <Tilt>
-            <Card
-              url="https://i.pinimg.com/736x/8e/94/e5/8e94e585f7830619014967ce11ce72f3.jpg"
-              title="Fiction"
-            />
-          </Tilt>
+          <Card
+            url="https://i.pinimg.com/736x/8e/94/e5/8e94e585f7830619014967ce11ce72f3.jpg"
+            title="Fiction"
+          />
         </Link>
 
         <Link to={"/"}>

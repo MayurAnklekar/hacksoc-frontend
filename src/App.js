@@ -52,6 +52,7 @@ function App() {
               level: data.level,
               currentBook: data.curBookID,
               isAdmin: data.isAdmin,
+              currentBookName: data.currentBookName
             }))
           }
         }

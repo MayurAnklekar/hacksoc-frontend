@@ -35,15 +35,17 @@ function App() {
             name: userAuth.displayName,
             uid: userAuth.uid,
             email: userAuth.email,
+            photoURL: userAuth.photoURL,
           })
         );
         const fetchUserData = async () => {
           const {data} = await axiosConfig.post('/users', { "uid": userAuth.uid, "name": userAuth.displayName, "email": userAuth.email });
+          console.log(data)
           if(data){
             dispatch(setUser({
               history: data.history,
               level: data.level,
-              currentBook: data.currentBook,
+              currentBook: data.curBookID,
               isAdmin: data.isAdmin,
             }))
           }

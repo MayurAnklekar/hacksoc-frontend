@@ -1,22 +1,24 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import axiosConfig from "../services/axiosConfig";
-
-function Books() {
+const Books = () => {
   const { id } = useParams();
   const { user } = useSelector((state) => state.user);
+  console.log(id);
+
   useEffect(() => {
     const getBooks = async () => {
-      const { data } = await axiosConfig.get("/books", {
-        genre: id,
+      const { books } = await axiosConfig.get("/books", {
+        category: id,
         level: user.level,
       });
+      console.log(books);
     };
     getBooks();
   }, [id, user]);
 
   return <div>Books</div>;
-}
+};
 
 export default Books;

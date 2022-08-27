@@ -39,6 +39,7 @@ function App() {
         );
         const fetchUserData = async () => {
           const {data} = await axiosConfig.post('/users', { "uid": userAuth.uid, "name": userAuth.displayName, "email": userAuth.email });
+          console.log(data)
           if(data){
             dispatch(setUser({
               history: data.history,

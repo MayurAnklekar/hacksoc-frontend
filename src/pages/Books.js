@@ -19,12 +19,6 @@ const Books = () => {
                 level: user.level||1
             });
             console.log("books", books);
-            // await fetch('https://hacksoc-app.herokuapp.com/api/books', {
-            // method: 'POST', body: JSON.stringify({id: "123",title: "homework", isDone: false, user: "foo"})})
-            // .then(response => response.json())
-            // .then(data => {
-            // console.log(data) 
-            // })
 
         };
         getBooks();

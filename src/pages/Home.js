@@ -29,7 +29,6 @@ const Home = () => {
     <div className="flex flex-row">
       <div className="bg-slate-100 w-[25%] h-screen p-4 ">
         <Profile />
-        <button onClick={signOutFromApp}>LOGOUT</button>
       </div>
       <div className="flex flex-row flex-wrap justify-around w-full">
         <Link to={"/category/fiction"}>

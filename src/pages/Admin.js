@@ -1,21 +1,22 @@
 import React, {useEffect, useState} from "react";
 import useFirebaseAuth from "../helpers/hooks/useFirebaseAuth";
 import Navbar from "../components/navbar/Navbar";
-// import MUIDataTable from "mui-datatables";
+import MUIDataTable from "mui-datatables";
 import axiosConfig from "../services/axiosConfig";
+
 
 const Admin = () => {
     const { signOutFromApp } = useFirebaseAuth();
     const [users, setUsers] = useState([])
 
-    // useEffect(()=>{
-    //     const getAllUser = async () => {
-    //         const {data} = await axiosConfig.get('/getusers');
-    //         console.log(data);
-    //         setUsers(data);
-    //     }
-    //     getAllUser();
-    // },[users]);
+    useEffect(()=>{
+        const getAllUser = async () => {
+            const {data} = await axiosConfig.get('/getusers');
+            console.log(data);
+            setUsers(data);
+        }
+        getAllUser();
+    },[]);
 
     const columns = [
         {
@@ -35,7 +36,7 @@ const Admin = () => {
             },
         },
         {
-            name: "currently reading",
+            name: "curBookID",
             label: "Currently Reading",
             options: {
                 filter: true,
@@ -43,8 +44,16 @@ const Admin = () => {
             },
         },
         {
-            name: "start data",
+            name: "start date",
             label: "Start Date",
+            options: {
+                filter: true,
+                sort: false,
+            },
+        },
+        {
+            name: "status",
+            label: "Status",
             options: {
                 filter: true,
                 sort: false,
@@ -52,26 +61,15 @@ const Admin = () => {
         },
     ];
 
-    const data = [
-        { name: "Joe James", company: "Test Corp", city: "Yonkers", state: "NY" },
-        { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-        { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-        {
-            name: "James Houston",
-            company: "Test Corp",
-            city: "Dallas",
-            state: "TX",
-        },
-    ];
+    
     const options = {
         filterType: "checkbox",
     };
     return (
         <div>
-            <Navbar />
-            <span>Admin</span>
-            <button onClick={signOutFromApp}>LOGOUT</button>
-            {/* <MUIDataTable title={"Student List"} data={data} columns={columns} options={options} /> */}
+            <Navbar />    
+            <div className="text-2xl font-bold text-center m-5">Admin Dashboard</div>
+            <MUIDataTable title={"Student List"} data={users} columns={columns} options={options} />
         </div>
     );
 };

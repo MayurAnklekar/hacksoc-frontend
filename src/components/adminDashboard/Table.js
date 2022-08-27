@@ -61,23 +61,23 @@ function Table(props) {
     <div>
       <DataTable
         columns={columns}
-        data={filteredData}
+        data={props.data}
         fixedHeader
         fixedHeaderScrollHeight="450px"
         title="Admin DashBoard"
         pagination
         highlightOnHover
-        subHeader
-        subHeaderComponent={
-          <input
-            type="text"
-            placeholder="Search here..."
-            className="border-2 p-2 rounded-md w-72 mb-10"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        }
-        subHeaderAlign="center"
+        // subHeader
+        // subHeaderComponent={
+        //   <input
+        //     type="text"
+        //     placeholder="Search here..."
+        //     className="border-2 p-2 rounded-md w-72 mb-10"
+        //     value={search}
+        //     onChange={(e) => setSearch(e.target.value)}
+        //   />
+        // }
+        // subHeaderAlign="center"
       />
     </div>
   );

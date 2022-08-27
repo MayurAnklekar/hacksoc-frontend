@@ -35,6 +35,7 @@ function App() {
             name: userAuth.displayName,
             uid: userAuth.uid,
             email: userAuth.email,
+            photoURL: userAuth.photoURL,
           })
         );
         const fetchUserData = async () => {
@@ -44,7 +45,7 @@ function App() {
             dispatch(setUser({
               history: data.history,
               level: data.level,
-              currentBook: data.currentBook,
+              currentBook: data.curBookID,
               isAdmin: data.isAdmin,
             }))
           }

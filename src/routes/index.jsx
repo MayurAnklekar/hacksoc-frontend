@@ -9,26 +9,25 @@ import Books from "../pages/Books";
 // import SinglePost from "../pages/SinglePost/SinglePost";
 
 const Router = () => {
-	// const {
-	// 	modal: { isSidebarVisible }
-	// } = useSelector(state => state);
+  // const {
+  // 	modal: { isSidebarVisible }
+  // } = useSelector(state => state);
 
-
-	return (
-		<>
-			{/* <div className={isSidebarVisible ? "sidebar visible" : "sidebar"}>
+  return (
+    <>
+      {/* <div className={isSidebarVisible ? "sidebar visible" : "sidebar"}>
 				<AllUsers />
 			</div>
 			<Appbar /> */}
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/category/:id" element={<Books />} />
-				{/* <Route path="/user/:id" element={<Profile />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/category/:id" element={<Books />} />
+        {/* <Route path="/user/:id" element={<Profile />} />
 				<Route path="/chat" element={<Chat />} />
         		<Route path="/post/:id" element={<SinglePost />} /> */}
-			</Routes>
-		</>
-	);
+      </Routes>
+    </>
+  );
 };
 
 export default Router;

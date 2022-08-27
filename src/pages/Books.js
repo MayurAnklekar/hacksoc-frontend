@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axiosConfig from "../services/axiosConfig";
+import Book from "../components/Book/Book";
+import './books.css';
+
 const Books = () => {
   const { id } = useParams();
   const { user } = useSelector((state) => state.user);
@@ -18,7 +21,13 @@ const Books = () => {
     getBooks();
   }, [id, user]);
 
-  return <div>Books</div>;
+  return <div className="book-item-container">
+    <Book/>
+    <Book/>
+    <Book/>
+    <Book/>
+    <Book/>    
+  </div>;
 };
 
 export default Books;

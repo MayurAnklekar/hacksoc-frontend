@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-
-
-body{
-   background-image: url('./images/background-2.png');
-}
-
-
-=======
 body {
   background-color: #fbfbff;
   opacity: 1;
@@ -21,4 +12,3 @@ body {
     ),
     repeating-linear-gradient(#d3d5ff55, #d3d5ff);
 }
->>>>>>> 7c2cddf1c3abed5b0f2257bca40ceb23c8cdbc78

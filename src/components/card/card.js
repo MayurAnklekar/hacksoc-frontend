@@ -1,7 +1,18 @@
 import React from "react";
 
-function card() {
-  return <div className="bg-slate-300 w-[20em] h-[20em] p-4 m-10">card</div>;
+function card(props) {
+  return (
+    <div className="bg-slate-300 w-[30em] h-[20em]  m-10 mt-28 rounded-xl relative drop-shadow-2xl">
+      <img
+        src={props.url}
+        alt="img"
+        className="object-cover h-full w-full rounded-xl "
+      />
+      <div className="flex justify-center content-center items-center text-4xl ">
+        <h1 className="absolute top-0 text-white ">{props.title}</h1>
+      </div>
+    </div>
+  );
 }
 
 export default card;

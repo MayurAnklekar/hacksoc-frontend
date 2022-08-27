@@ -8,7 +8,7 @@ import { login, logout, setUser } from "./features/userSlice";
 import Router from "./routes/index";
 import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home";
-import {showAlert} from "./features/modalSlice";
+import { showAlert } from "./features/modalSlice";
 import Alerts from "./components/Alert/Alert.jsx";
 import Admin from "./pages/Admin";
 
@@ -33,7 +33,7 @@ function App() {
       if (userAuth) {
         console.log("userAuth", userAuth);
 
-        dispatch(showAlert({"msg":"Successful", "type":"success"}));
+        dispatch(showAlert({ msg: "Successful", type: "success" }));
 
         dispatch(
           login({
@@ -55,11 +55,10 @@ function App() {
               currentBookName: data.currentBookName
             }))
           }
-        }
+        };
         fetchUserData();
       } else {
         dispatch(logout());
-        
       }
     });
 
@@ -68,7 +67,10 @@ function App() {
 
   return (
     <div>
-    {user.isAdmin?<Admin/>:(user.user?(<Router />):(<div>
+      {user.user ? (
+        <Router />
+      ) : (
+        <div>
           <span>Please sign in</span>
           <GoogleOneTapLogin
             onError={(error) => console.log(error)}
@@ -81,8 +83,9 @@ function App() {
               callback: oneTapSignInWithGoogle,
             }}
           />
-        </div>))}
-        <Alerts/>
+        </div>
+      )}
+      <Alerts />
     </div>
   );
 }

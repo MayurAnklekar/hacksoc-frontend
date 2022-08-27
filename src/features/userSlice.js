@@ -30,7 +30,7 @@ export const userSlice = createSlice({
       state.user = null;
       state.history = [];
       state.level = null;
-      
+      state.isAdmin = false;
     }
   },
  

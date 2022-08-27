@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import axios from "axios";
 
 function Table(props) {
-  const [search, setSearch] = useState('');
-  const [filteredData, setFilteredData] = useState(props.data);
+//   const [search, setSearch] = useState('');
+//   const [filteredData, setFilteredData] = useState(props.data);
 
-  console.log(filteredData,"filter data");
 //   const filterData = () => {
 //      setFilteredData(props.data);
 //   }
@@ -18,14 +16,14 @@ function Table(props) {
 //     setFilteredData(props.data)
 // },[])
 
-  useEffect(()=>{
-     const result = props.data.filter(data => {
-         return data.name.toLowerCase().match(search.toLowerCase());
-     })
-     setFilteredData(result);
+//   useEffect(()=>{
+//      const result = props.data.filter(data => {
+//          return data.name.toLowerCase().match(search.toLowerCase());
+//      })
+//      setFilteredData(result);
 
 
-  },[search])
+//   },[search])
 
   const columns = [
     {

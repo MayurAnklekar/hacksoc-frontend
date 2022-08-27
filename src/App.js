@@ -4,7 +4,7 @@ import axiosConfig from "./services/axiosConfig";
 import GoogleOneTapLogin from "react-google-one-tap-login";
 import useFirebaseAuth from "./helpers/hooks/useFirebaseAuth";
 import auth from "./helpers/firebaseConfig";
-import { login, logout } from "./features/userSlice";
+import { login, logout, setUser } from "./features/userSlice";
 import Router from "./routes/index";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -27,14 +27,30 @@ function App() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
+        console.log("userAuth", userAuth);
+
         dispatch(
           login({
+            name: userAuth.displayName,
             uid: userAuth.uid,
             email: userAuth.email,
           })
         );
+        const fetchUserData = async () => {
+          const {data} = await axiosConfig.post('/users', { "uid": userAuth.uid, "name": userAuth.displayName, "email": userAuth.email });
+          if(data){
+            dispatch(setUser({
+              history: data.history,
+              level: data.level,
+              currentBook: data.currentBook,
+              isAdmin: data.isAdmin,
+            }))
+          }
+        }
+        fetchUserData();
       } else {
         dispatch(logout());
+        
       }
     });
 
@@ -45,7 +61,7 @@ function App() {
     <div>
       {user.user ? (
         <Router />
-        
+
       ) : (
         <div>
           <span>Please sign in</span>

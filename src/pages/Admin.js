@@ -10,14 +10,14 @@ const Admin = () => {
     const { signOutFromApp } = useFirebaseAuth();
     const [users, setUsers] = useState([])
 
-    // useEffect(()=>{
-    //     const getAllUser = async () => {
-    //         const {data} = await axiosConfig.get('/getusers');
-    //         console.log(data);
-    //         setUsers(data);
-    //     }
-    //     getAllUser();
-    // },[users]);
+    useEffect(()=>{
+        const getAllUser = async () => {
+            const {data} = await axiosConfig.get('/getusers');
+            console.log(data);
+            setUsers(data);
+        }
+        getAllUser();
+    },[]);
 
     const columns = [
         {

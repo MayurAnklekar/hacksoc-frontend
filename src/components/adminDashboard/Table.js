@@ -42,7 +42,7 @@ function Table(props) {
     },
     {
       name: "Start Date",
-      selector: (row) => "28/08/2022",
+      selector: (row) => new Date(row.startDate).toLocaleDateString("en-US"),
     },
     {
       name: "Status",

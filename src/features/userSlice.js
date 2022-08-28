@@ -5,8 +5,9 @@ const initialState = {
   history: [],
   level: 1,
   currentBook: null,
-  currentBookName:null,
+  currentBookName: null,
   isAdmin: false,
+  isApproved: false,
 };
 
 export const userSlice = createSlice({
@@ -15,7 +16,8 @@ export const userSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     setUser: (state, action) => {
-      const { history, level, currentBook, isAdmin, currentBookName } = action.payload;
+      const { history, level, currentBook, isAdmin, currentBookName } =
+        action.payload;
       state.history = history;
       state.level = level;
       state.currentBook = currentBook;
@@ -24,6 +26,9 @@ export const userSlice = createSlice({
     },
     setCurrentBook: (state, action) => {
       state.currentBook = action.payload;
+    },
+    setApproved: (state, action) => {
+      state.isApproved = action.payload;
     },
     login: (state, action) => {
       state.user = action.payload;
@@ -37,6 +42,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const { login, logout, setUser, setCurrentBook } = userSlice.actions;
+export const { login, logout, setUser, setCurrentBook, setApproved } =
+  userSlice.actions;
 
 export default userSlice.reducer;

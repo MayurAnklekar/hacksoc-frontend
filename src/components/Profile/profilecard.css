@@ -27,6 +27,8 @@
   justify-content:space-around;
   align-items: flex-start;
   margin-top: 6rem;
+  position:relative;
+  right:4rem;
 }
 
 .profilecard__dp {

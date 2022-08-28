@@ -27,17 +27,18 @@ const Profile = () => {
       
       <div className="sidebar-options">
       <div>
-      <BookIcon sx={{marginRight:"1rem"}}/><Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"1rem"}}>Currently Reading :</Typography>
+      <Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"1.5rem"}}>Currently Reading :</Typography>
+      <Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"5rem"}}>Book Name</Typography>
       </div>
 
       
 
       <div>
-         <SummarizeIcon sx={{marginRight:"1rem"}}/><button><Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"1rem"}}>Summarize</Typography></button>
+         <SummarizeIcon sx={{marginRight:"1rem", color:"rgb(105, 105, 76)"}}/><button><Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"1.5rem"}}>Summarize</Typography></button>
       </div>
 
       <div>
-        <LogoutIcon sx={{marginRight:"1rem"}}/><button onClick={signOutFromApp}><Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)"}}>LogOut</Typography></button>
+        <LogoutIcon sx={{marginRight:"1rem", color:"rgb(105, 105, 76)"}}/><button onClick={signOutFromApp}><Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)"}}>LogOut</Typography></button>
       </div>
       </div>
 

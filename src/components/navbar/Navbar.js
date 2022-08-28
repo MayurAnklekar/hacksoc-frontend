@@ -9,6 +9,7 @@ export default function Navbar() {
     return (
         <div className="navbar-position">
         <div className="navbar-container">
+          
             <div>
                 <Typography variant="h4" sx={{color:"rgb(105, 105, 76)", fontWeight:"700"}}>Humanity</Typography>
             </div>

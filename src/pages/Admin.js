@@ -68,10 +68,6 @@ const Admin = () => {
     };
     return (
         <div>
-            <Navbar />
-            <span>Admin</span>
-            <button onClick={signOutFromApp}>LOGOUT</button>
-            {/* <MUIDataTable title={"Student List"} data={data} columns={columns} options={options} /> */}
             <Table data={users}/>
         </div>
     );

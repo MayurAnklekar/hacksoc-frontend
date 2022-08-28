@@ -19,7 +19,6 @@ const Profile = () => {
     const dispatch = useDispatch();
     const { signOutFromApp } = useFirebaseAuth();
     const {user, currentBook, currentBookName} = useSelector((state) => state.user);
-    console.log("Profile", user.photoURL)
     const [open, setOpen] = React.useState(false);
     const [summ, setSumm] = useState("");
 
@@ -72,7 +71,7 @@ const Profile = () => {
             </Dialog>
     <div className="avatar">
       <img
-        src={"" + user.photoURL + ""}
+        src={"" + user?.photoURL + ""}
         alt="profile_image"
         className="profilecard__dp roundimage "
       />

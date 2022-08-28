@@ -22,6 +22,10 @@ export const userSlice = createSlice({
       state.isAdmin = isAdmin;
       state.currentBookName = currentBookName;
     },
+    setLevel: (state, action) => {
+      const {level} = action.payload;
+      state.level = level;
+    },
     setCurrentBook: (state, action) => {
       state.currentBook = action.payload;
     },
@@ -37,6 +41,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { login, logout, setUser, setCurrentBook } = userSlice.actions;
+export const { login, logout, setUser, setCurrentBook, setLevel } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -11,12 +11,39 @@ import Profile from "../components/Profile/Profile";
 import { Typography } from "@mui/material";
 import Table from "../components/adminDashboard/Table";
 import ProgressBar from "@ramonak/react-progress-bar";
+import Book from "../components/Book/Book";
+import { setLevel } from "../features/userSlice";
 
 const Home = () => {
     const { user, history, level, currentBook, isAdmin } = useSelector(
         (state) => state.user
     );
     const dispatch = useDispatch();
+    const [recom, setRecom] = useState([])
+    const [progress, setProgress] = useState('0')
+
+
+    useEffect(()=>{
+        const getProg = async () => {
+            const {data} = await axiosConfig.get(`/progress?uid=${user.uid}`);
+            setProgress(data);
+            if(+data>=70){
+                const {data} = axiosConfig.post(`/level?uid=${user.uid}`);
+                dispatch(setLevel({level:level+1}))
+                
+            }
+        }
+        getProg();
+    },[user.uid])
+
+
+    useEffect(()=>{
+        const getRecom = async () => {
+            const {data} = await axiosConfig.get(`/recommendation?uid=${user.uid}`);
+            setRecom(data);
+        }
+        getRecom();
+    },[user.uid])
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -90,24 +117,44 @@ const Home = () => {
         <div>
             {isAdmin ? (
                 <div>
-                    <span>Admin</span>
-                    <button onClick={signOutFromApp}>LOGOUT</button>
                     {/* <MUIDataTable title={"Student List"} data={data} columns={columns} options={options} /> */}
                     <Table data={users} />
                 </div>
             ) : (
-
                 <div className="flex flex-row">
                     <div className="bg-[#fff2b6] w-[25%] h-screen p-4 ">
                         <Profile />
                     </div>
                     <div>
                         <div className="flex flex-col justify-center align-middle w-full mx-auto mt-6">
-                        <p className="text-center font-bold mb-2">Progress</p>
-                        <div className="flex justify-center">
-                        <ProgressBar bgColor="#00FF00" completed="90" width="600px" />
-                        </div>
-                       
+                        <div className="text-5xl m-5">Level: {level}</div>
+                            <p className="text-center font-bold mb-2">Progress</p>
+                            <div className="flex justify-center">
+                                <ProgressBar bgColor="#00FF00" completed={progress} width="600px" height="30px" margin="2rem"/> 
+                            </div>
+                            <div className="mt-4 bg-slate-300 py-6">
+                                    <h1 className="text-3xl font-bold text-center">Your Recommendations</h1>
+                                    <div className="flex flex-row flex-wrap items-end justify-around">
+                                        <Book
+                                            url={recom[0]?.picture}
+                                            title={recom[0]?.title}
+                                            key={recom[0]?.bookID}
+                                            id={recom[0]?.bookID}
+                                        />
+                                        <Book
+                                            url={recom[1]?.picture}
+                                            title={recom[1]?.title}
+                                            key={recom[1]?.bookID}
+                                            id={recom[1]?.bookID}
+                                        />
+                                        <Book
+                                            url={recom[2]?.picture}
+                                            title={recom[2]?.title}
+                                            key={recom[2]?.bookID}
+                                            id={recom[2]?.bookID}
+                                        />
+                                    </div>
+                                </div>
                         </div>
                         <div className="flex flex-row flex-wrap justify-start w-full">
                             <Link to={"/category/fiction"}>
@@ -156,7 +203,6 @@ const Home = () => {
                             </Link>
                         </div>
                     </div>
-
                 </div>
             )}
         </div>

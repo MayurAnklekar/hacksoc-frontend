@@ -13,7 +13,7 @@ function Report() {
     fetchReports();
   }, []);
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex flex-row flex-wrap justify-around">
       <ReportCard />
       <ReportCard />
     </div>

@@ -7,6 +7,7 @@ import './navbar.css';
 export default function Navbar() {
     const { signOutFromApp } = useFirebaseAuth();
     return (
+        <>
         <div className="navbar-position">
         <div className="navbar-container">
           
@@ -20,8 +21,11 @@ export default function Navbar() {
             </div>
          
         </div>
- 
-       {/* <hr />       */}
+  
+       
+        <hr />     
+          
     </div>
+    </> 
     )
 }

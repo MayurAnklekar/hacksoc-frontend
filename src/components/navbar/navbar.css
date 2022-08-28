@@ -22,9 +22,7 @@
 }
 
 hr{
-    border:0.5px solid black;
-    width:90%;
-    margin:auto;
+    border:1px solid #69694c79;
 }
 
 .navbar-container div {

@@ -26,6 +26,8 @@ function Table(props) {
 
   //   },[search])
 
+  console.log(props)
+
   const columns = [
     {
       name: "Name",

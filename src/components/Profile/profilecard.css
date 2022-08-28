@@ -14,7 +14,7 @@
   border-top-right-radius:30px;
   border-bottom-right-radius:30px;
   position:relative;
-  right:3.5rem;
+  right:5rem;
 }
 
 .avatar img{
@@ -28,7 +28,7 @@
   align-items: flex-start;
   margin-top: 6rem;
   position:relative;
-  right:4rem;
+  right:2rem;
 }
 
 .profilecard__dp {

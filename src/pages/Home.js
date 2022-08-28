@@ -87,7 +87,7 @@ const Home = () => {
 
   return (
     <div>
-      {!user.isAdmin ? (
+      {user.isAdmin ? (
         <div>
           <span>Admin</span>
           <button onClick={signOutFromApp}>LOGOUT</button>
@@ -96,7 +96,7 @@ const Home = () => {
         </div>
       ) : (
         <div className="flex flex-row">
-          <div className="bg-[#fff2b6] w-[25%] h-screen p-4 ">
+          <div className="bg-[#fff2b6] w-[25%] h-screen p-4 border-r-2 border-[#69694c79]">
             <Profile />
           </div>
 

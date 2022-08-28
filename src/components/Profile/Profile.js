@@ -1,49 +1,50 @@
-import React from 'react'
+import React from "react";
 import "./profilecard.css";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useFirebaseAuth from "../../helpers/hooks/useFirebaseAuth";
-
+import { Typography } from "@mui/material";
+import BookIcon from '@mui/icons-material/Book';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
 const Profile = () => {
-    const dispatch = useDispatch();
-    const { signOutFromApp } = useFirebaseAuth();
-    const {user, currentBook} = useSelector((state) => state.user);
-    console.log("Profile", user.photoURL)
+  const dispatch = useDispatch();
+  const { signOutFromApp } = useFirebaseAuth();
+  const { user, currentBook } = useSelector((state) => state.user);
+  console.log("Profile", user.photoURL);
   return (
-    <section className="profilecard gradient-border">
-        <header>
-            <form>
-            <div className="flex justify-center content-center">
-            <img
-              // src={user?.preview || dp}
-              src={""+user.photoURL+""}
-              alt="profile_image"
-              className="profilecard__dp roundimage "
-            />
-          </div>
-            </form>
-            <h1>{user.name}</h1>
-        </header>
-        <article>
-        <div className="profilecard__info">
-          <h3>Email: </h3>
-          <h3>{user.email}</h3>
-        </div>
-        <div className="profilecard__info">
-          <h3>Currently Reading: </h3>
-          <h3>{currentBook===''?(<>-</>):(<>{currentBook}</>)}</h3>
-        </div>
-      </article>
-      <div className="btn-group">
-          <button
-            className="font-semibold bg-slate-600"
-            onClick={signOutFromApp}
-          >
-            Logout
-          </button>
-        </div>
-    </section>
-  )
-}
+    <div className="sidebar">
+      <div className="avatar">
+        <img
+          src={"" + user.photoURL + ""}
+          alt="profile_image"
+          className="profilecard__dp roundimage "
+        />
+        <Typography variant="h4" sx={{fontWeight:"700", color:"rgb(254, 255, 225)"}}>Welcome Back</Typography>
+        <Typography variant="h6"sx={{fontWeight:"700", color:"rgb(254, 255, 225)"}}>{user.name}</Typography>
+      </div>
 
-export default Profile
+      
+      <div className="sidebar-options">
+      <div>
+      <Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"1.5rem"}}>Currently Reading :</Typography>
+      <Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"5rem"}}>Book Name</Typography>
+      </div>
+
+      
+
+      <div>
+         <SummarizeIcon sx={{marginRight:"1rem", color:"rgb(105, 105, 76)"}}/><button><Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"1.5rem"}}>Summarize</Typography></button>
+      </div>
+
+      <div>
+        <LogoutIcon sx={{marginRight:"1rem", color:"rgb(105, 105, 76)"}}/><button onClick={signOutFromApp}><Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)"}}>LogOut</Typography></button>
+      </div>
+      </div>
+
+      
+    </div>
+  );
+};
+
+export default Profile;

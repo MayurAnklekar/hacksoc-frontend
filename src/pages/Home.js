@@ -87,7 +87,7 @@ const Home = () => {
 
   return (
     <div>
-      {user.isAdmin ? (
+      {!user.isAdmin ? (
         <div>
           <span>Admin</span>
           <button onClick={signOutFromApp}>LOGOUT</button>

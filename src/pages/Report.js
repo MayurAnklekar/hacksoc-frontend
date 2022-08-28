@@ -7,11 +7,11 @@ function Report() {
   const { uid } = useParams();
   useEffect(() => {
     const fetchReports = async () => {
-      const { data } = await axiosConfig.get("/getsubmissions", { "uid": uid });
-      console.log(data, "WHAT");
+      const  data  = await axiosConfig.get("/getsubmissions");
+      console.log( "WHAT",data);
     };
     fetchReports();
-  }, [uid]);
+  }, []);
   return (
     <div className="flex flex-row flex-wrap">
       <ReportCard />

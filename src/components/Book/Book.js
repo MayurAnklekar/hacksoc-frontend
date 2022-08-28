@@ -7,7 +7,7 @@ import axiosConfig from "../../services/axiosConfig";
 export default function Book(props) {
   const today = new Date();
   const dispatch = useDispatch();
-  const { currentBook, user } = useSelector((state) => state.user);
+  const { currentBook, user, level } = useSelector((state) => state.user);
   const handler = async () => {
     if (!currentBook) {
       dispatch(setCurrentBook(props.id));

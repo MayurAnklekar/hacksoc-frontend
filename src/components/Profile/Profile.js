@@ -8,10 +8,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 
 const Profile = () => {
-  const dispatch = useDispatch();
-  const { signOutFromApp } = useFirebaseAuth();
-  const { user, currentBook } = useSelector((state) => state.user);
-  console.log("Profile", user.photoURL);
+    const dispatch = useDispatch();
+    const { signOutFromApp } = useFirebaseAuth();
+    const {user, currentBook, currentBookName} = useSelector((state) => state.user);
+    console.log("Profile", user.photoURL)
   return (
     <div className="sidebar">
       <div className="avatar">
@@ -28,7 +28,7 @@ const Profile = () => {
       <div className="sidebar-options">
       <div>
       <Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"1.5rem"}}>Currently Reading :</Typography>
-      <Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"5rem"}}>Book Name</Typography>
+      <Typography variant="h5"sx={{fontWeight:"700", color:"rgb(105, 105, 76)", marginBottom:"5rem"}}>{currentBookName}</Typography>
       </div>
 
       

@@ -12,3 +12,7 @@
     ),
     repeating-linear-gradient(#d3d5ff55, #d3d5ff);
 } */
+
+*{
+    font-family: 'Ubuntu';
+}
